@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="<%= asset_path 'login.css' %>">
+    
+  </head>
+
+  <body>
+    <div class="globalContainer">
+        <div class="localContainer">
+            <div>
+                <div class="centerTitle">
+                    <h1 class="loginTitle">Login</h1>
+                </div>
+                <div class="formContainer">
+                    <%= form_with scope: :user, url: test_path, local: true, method: :post do |f| %>
+                        <div class="formGroup">
+                            <%= f.text_field :username, class: "inputField", placeholder: "Username" %>
+                            <%= image_tag(image_path("user.png"), class: "inputIcon")%>
+                        </div>
+
+                        <div class="formGroup">
+                            <%= f.password_field :password, class: "inputField", placeholder: "password" %>
+                            <%= image_tag(image_path("lock.png"), class: "inputIcon") %>
+                        </div>
+
+                        <div class="buttonContainer">
+                            <div class="button">
+                                <%= f.submit "Sign In", class: "btn" %>
+                            </div>
+                        </div>
+
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>

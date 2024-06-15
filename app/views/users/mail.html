@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Credentials</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid #0f0;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .header {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .credentials {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .credentials span {
+            color: #0ff;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <strong>Your Login Information</strong>
+        </div>
+        <div class="credentials">
+            Email: <span id="user-email">user@example.com</span>
+        </div>
+        <div class="credentials">
+            Password: <span id="user-password">yourpassword123</span>
+        </div>
+        <div class="footer">
+            Please keep this information secure.
+        </div>
+    </div>
+</body>
+</html>
