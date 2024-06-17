@@ -1,10 +1,16 @@
+<div class="navbar">
 <div class="navigation">
         <ul class="elements">
             <li class="element">
                 <div class="userPro">
+                    <%= image_tag(asset_path("user-add.png")) %>
+                    <%= link_to "Add_User", signup_path %>
+                </div>
+            </li>
+            <li class="element">
+                <div class="userPro">
                     <%= image_tag(asset_path("users.png")) %>
-                    <%= link_to "Users_List", url: '/' %>
-                    <%# <a href="#">Users_List</a> %>
+                    <%= link_to "Users_List", adminPage_path %>
                 </div>
             </li>
             <li class="element">
@@ -14,4 +20,5 @@
                 </div>
             </li>
         </ul>
-    </div>
+</div>
+</div>

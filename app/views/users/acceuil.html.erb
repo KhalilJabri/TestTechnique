@@ -1,14 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="navigation.css">
-    </head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+}
 
-    <body>
-        <%= render "navigation" %>
-        <%= render "userList"%>
-    </body>
-</html>
+.globalContainer {
+    background-image: url(<%= asset_path("pff.jpg")%>);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchContainer {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+}
+
+.inputContainer {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center; 
+    /* background-color: green; */
+}
+
+.inputSameWidth {
+    display: flex;
+    width: 500px;
+    height: 50px;
+}
+
+.inputSearch {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    font-size: 1.1rem;
+    background-color: rgba(51, 51, 51, 0.6);
+    border-radius: 10px 0 0 10px;
+    color: white;
+    padding-left: 10px;
+}
+
+.inputSearch::placeholder {
+    color: white;
+}
+
+.iconSearch {
+    background-color: rgba(51, 51, 51, 0.6);
+    border: 1px solid #333;
+    margin-left: 5px;
+    padding: 12px;
+    border-radius: 0 10px 10px 0;
+}
+
+.titleInfo {
+    font-size: 2rem;
+    color: white;
+    margin-top: 30px;
+}
+</style>
+
+    <div class="globalContainer">
+
+        <div class="searchContainer">
+            <div class="inputContainer">
+                <div class="inputSameWidth">
+                    <input type="text" id="search" placeholder="search an ip" class="inputSearch"/>
+                    <%= link_to(image_tag(asset_path('search-location.png'), alt: "Image Alt Text", class: "iconSearch")) %>
+
+                    <%# <img src="search-location.png" class="iconSearch"/> %>
+                </div>
+            </div>
+            <div class="titleInfo">
+                <p>Find What You Need: Your IP Search Starts Now!</p>
+            </div>
+
+        </div>
+    </div>

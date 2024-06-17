@@ -7,8 +7,19 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "users#login"
-  post '', to: 'users#loginUser', as: "test"
-  get '/acceuil', to: 'users#acceuil', as: 'acceuil'
+  post '', to: 'users#loginUser', as: "login"
+
+  get 'logout', to: "users#logoutPage", as: "logoutPage"
+  # post '', to: "users#logout", as: "logout"
+
+  get 'acceuil', to: 'users#acceuil', as: 'acceuil'
+  
+  get 'signup', to: 'users#signup', as: "signup"
+  post 'createUser', to: 'users#createUser', as: "createUser"
+
+  get "adminPage/:id", to: "users#destroy", as: 'destroy_user'
+
+  get 'adminPage', to: "users#adminPage", as: "adminPage"
 
   # get '/patients/:id', to: 'patients#show', as: 'patient'
   # match 'photos', to: 'photos#show', via: [:get, :post]

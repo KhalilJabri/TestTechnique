@@ -1,43 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="<%= asset_path 'login.css' %>">
-    
-  </head>
+<html lang="en">
+<head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <body>
-    <div class="globalContainer">
-        <div class="localContainer">
-            <div>
-                <div class="centerTitle">
-                    <h1 class="loginTitle">Login</h1>
-                </div>
-                <div class="formContainer">
-                    <%= form_with scope: :user, url: test_path, local: true, method: :post do |f| %>
-                        <div class="formGroup">
-                            <%= f.text_field :username, class: "inputField", placeholder: "Username" %>
-                            <%= image_tag(image_path("user.png"), class: "inputIcon")%>
-                        </div>
+    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
 
-                        <div class="formGroup">
-                            <%= f.password_field :password, class: "inputField", placeholder: "password" %>
-                            <%= image_tag(image_path("lock.png"), class: "inputIcon") %>
-                        </div>
+<body>
+    <div class="globalLoginContainer">
+        <div class="loginContainer">
 
-                        <div class="buttonContainer">
-                            <div class="button">
-                                <%= f.submit "Sign In", class: "btn" %>
-                            </div>
-                        </div>
-
-                    <% end %>
-                </div>
-
+            <div class="titleContainer">
+                <h1 class="title">Login</h1>
             </div>
+
+            <div class="formContainer" >
+            <%# <form class="formContainer"> %>
+            <%=form_with scope: :user, url: login_path, local: true, method: :post do |f| %>
+                <div class="inputContainer">
+                    <%=image_tag(asset_path("user.png"), class: "inputIcon")%>
+                    <%= f.text_field :username, class: "inputField", placeholder: "Username" %>
+                </div>
+    
+                <div class="inputContainer">
+                    <%=image_tag(asset_path("lock.png"), class: "inputIcon")%>
+                    <%= f.password_field :password, class: "inputField", placeholder: "Password"%>
+                </div>
+
+                <div class="buttonContainer">
+                    <%= f.submit "Login", class: "button"%>
+                </div>
+            <% end %>
+            </div>
+            <%# </form> %>
         </div>
     </div>
-
-
-  </body>
+</body>
 </html>

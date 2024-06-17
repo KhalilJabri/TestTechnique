@@ -1,0 +1,61 @@
+<%# <%= stylesheet_link_tag('signup')  %>
+
+
+    <div class="globalContainer">
+        <div class="navbar">
+            <div class="navigation">
+                <ul class="elements">
+                    <li class="element">
+                        <div class="userPro">
+                            <%= image_tag(asset_path("users.png")) %>
+                            <%= link_to "Users_List", adminPage_path %>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <div class="userPro">
+                            <%= image_tag(asset_path("user.png")) %>
+                            <p>Hello, Foulen</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <div>
+        <div class="localContainer">
+            <div>
+                <div class="centerTitle">
+                    <h1 class="loginTitle">Create User</h1>
+                </div>
+                <div class="formContainerSignup">
+                    <%= form_with scope: :user, url: createUser_path, local: true, method: :post do |f| %>
+                        <div class="formGroup">
+                            <%= f.text_field :username, class: "inputFieldSignup", placeholder: "Username" %>
+                            <%= image_tag(image_path("user.png"), class: "inputIconSignup")%>
+                        </div>
+
+                        <div class="formGroup">
+                            <%= f.email_field :email, class: "inputFieldSignup", placeholder: "Email" %>
+                            <%= image_tag(image_path("envelope.png"), class: "inputIconSignup")%>
+                        </div>
+
+                        <div class="formGroup">
+                            <%= f.password_field :password, class: "inputFieldSignup", placeholder: "password" %>
+                            <%= image_tag(image_path("lock.png"), class: "inputIconSignup") %>
+                        </div>
+
+                        <div class="buttonContainerSignup">
+                            <div class="buttonSignup">
+                                <%= f.submit "Add User", class: "btn" %>
+                            </div>
+                        </div>
+
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+  </div>
+<%# </html> %>

@@ -3,8 +3,8 @@
     padding: 0;
 }
 
-.globalContainer {
-    background-image: url(<%= asset_path 'wp1.jpg' %>);
+.globalLoginContainer {
+    background-image: url(<%= asset_path('wp1.jpg') %>);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,167 +14,160 @@
     justify-content: center;
 }
 
-.localContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* ---------------------------------------------------------------------------------------------- */
 
-.centerTitle {
+/* .loginContainer {
+    border: 1px solid white;
+    border: 2px solid white;
+    border-radius: 15px;
+    color: white;
+    padding: 20px;
+    /* background-color: rgba(255, 255, 255, 0.2); */
+
+/* } */
+
+.loginContainer {
+    display: inline-block;
+    position: relative;
+    padding: 25px;
+    margin: 25px;
+    animation: pad linear infinite 1.5s 2s;
+  }
+  
+  .loginContainer:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    animation: wh linear 1.5s;
+    border-left: 3px solid #fff;
+    border-top: 3px solid #fff;
+  }
+  
+  .loginContainer:before {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    animation: wh linear 1.5s;
+    border-right: 3px solid #fff;
+    border-top: 3px solid #fff;
+  }
+  
+  .loginContainer>div:after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 20px;
+    height: 20px;
+    animation: wh linear 1.5s;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+  }
+  
+  .loginContainer>div:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 20px;
+    height: 20px;
+    animation: wh linear 1.5s;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+  }
+/*   
+  @keyframes wh {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    50% {
+      width: 20px;
+      height: 0px;
+    }
+    100% {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  @keyframes pad {
+    0% {
+      padding: 25px;
+      margin: 25px;
+    }
+    30% {
+      filter: blur(0px);
+    }
+    50% {
+      padding: 50px;
+      margin: 0px;
+      filter: blur(3px);
+    }
+    70% {
+      filter: blur(0px);
+    }
+    100% {
+      padding: 25px;
+      margin: 25px;
+    }
+  } */
+
+/* ---------------------------------------------------------------------------------------------- */
+
+.titleContainer {
+    color: white;
     text-align: center;
 }
 
-.loginTitle {
-    color: white;
-    font-size: 45px;
-}
-
 .formContainer {
-    margin-top: 20px;
-
+    margin: 15px 0;
 }
 
-.formGroup {
-    position: relative;
-    width: 75%;
-    margin-top: 10px;
-}
-
-.inputField {
-    padding-left: 30px;
-    height: 45px;
-    width: 100%;
-    border-color: transparent;
-    border-bottom: 1px solid white;
-    background-color: transparent;
-    color: white;
-}
-
-input::placeholder {
-    color: white;
+.inputContainer {
+    display: flex;
+    margin: 20px 0;
 }
 
 .inputIcon {
-    position: absolute;
-    left: 5%;
-    top: 50%;
-    transform: translateY(-50%);
+    background-color: rgba(38, 38, 38, 0.4);
+    padding: 10px 10px;
+    margin-right: 4px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.inputField {
+    background-color: rgba(38, 38, 38, 0.4);
+    padding: 10px 10px;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    color: white;
+}
+
+.inputField::placeholder {
+    color: white;
 }
 
 .buttonContainer {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
     width: 100%;
 }
 
 .button {
-    border-radius: 35px;
+    background-color: rgba(255, 255, 255);
+    color: black;
+    border: none;
     width: 100%;
-    
-}
-
-.btn {
-    padding: 10px 0;
-    font-size: 15px;
+    padding: 8px 0;
     font-weight: bold;
-    color: white;
-    width: 100%;
-    border: 0;
-    border-radius: 35px;
-    background-color: #004351;
     cursor: pointer;
-}
-
-<%# --------------------------------------- navigation ------------------------------------------------ %>
-
-.navigation {
-    background-color: dimgray;
-    padding: 10px 0;
-}
-
-.elements {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0 50px;
-
-}
-
-.element {
-    display: flex;
-    align-items: center;
-    margin: 0 20px;
-}
-
-/* .element a {
-    color: white;
-    } */
-    
-    .userPro {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .userPro p, a {
-        padding-top: 5px;
-        color: white;
-        text-decoration: none;
-}
-
-<%# ------------------------------------- list Of Users ------------------------------------------ %>
-
-.contentContainer {
-    display: flex; 
-    justify-content: center;
-}
-
-.tableContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    width: 70%;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-  
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-  
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.globalButtonContainer {
-
-}
-
-.buttonsContainer {
-    display: flex;
-    justify-content: center;
-}
-
-.editbuttonAction {
-    margin: 5px;
-    padding: 10px;
-    background-color: yellow;
-    border-radius: 10px;
-    background-color: #4EBBDA;
-}
-
-.deletebuttonAction {
-    margin: 5px;
-    padding: 10px;
-    background-color: yellow;
-    border-radius: 10px;
-    background-color: red;
 }

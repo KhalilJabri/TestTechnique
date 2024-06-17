@@ -1,5 +1,5 @@
 <div class="contentContainer">
-
+    
         <div class="tableContainer">
             <table>
                 <tr>
@@ -10,24 +10,30 @@
                     <th>Is_active</th>
                     <th></th>
                 </tr>
+                <% @users.each do |user|%>
                 <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
-                    <td>Germany</td>
-                    <td>Germany</td>
+                    <td><%= user.id%></td>
+                    <td><%= user.username%></td>
+                    <td><%= user.email%></td>
+                    <td><%= user.role%></td>
+                    <td><%= user.is_active%></td>
                     <td class="globalButtonContainer">
                         <div class="buttonsContainer">
                             <div class="editbuttonAction">
-                                <a href="#">Edit</a>
+                                <%= link_to "Edit" %>
+                                <%# <a href="#">Edit</a> %>
                             </div>
                             <div class="deletebuttonAction">
-                                <a href="#">Delete</a>
+                                <%# <%= link_to "Delete", destroy_user_path(user.id), method: :delete %> 
+                                <%= link_to "Delete", destroy_user_path(user.id), data: { confirm: 'Are you sure?' } %>
+
+                                <%# <a href="#">Delete</a> %>
                             </div>
                         </div>
                     </td>
                 </tr>
-                <tr>
+                <%end%>
+                <%# <tr>
                     <td>Centro comercial Moctezuma</td>
                     <td>Francisco Chang</td>
                     <td>Mexico</td>
@@ -43,7 +49,7 @@
                             </div>
                         </div>
                     </td>
-                </tr>
+                </tr> %>
             </table>
         </div>
     </div>
