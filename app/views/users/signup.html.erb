@@ -2,24 +2,25 @@
 
 
     <div class="globalContainer">
-        <div class="navbar">
+        <%# <div class="navbar">
             <div class="navigation">
                 <ul class="elements">
                     <li class="element">
-                        <div class="userPro">
-                            <%= image_tag(asset_path("users.png")) %>
-                            <%= link_to "Users_List", adminPage_path %>
-                        </div>
+                        <div class="userPro"> %>
+                            <%# <%= image_tag(asset_path("users.png")) %>
+                            <%# <%= link_to "Users_List", adminPage_path %> 
+                        <%# </div>
                     </li>
                     <li class="element">
-                        <div class="userPro">
-                            <%= image_tag(asset_path("user.png")) %>
-                            <p>Hello, Foulen</p>
+                        <div class="userPro"> %>
+                            <%# <%= image_tag(asset_path("user.png")) %>
+                            <%# <p>Hello, Foulen</p>
                         </div>
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> %>
+        <%= render "navigation"%>
     <div>
         <div class="localContainer">
             <div>

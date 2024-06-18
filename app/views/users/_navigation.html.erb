@@ -3,20 +3,34 @@
         <ul class="elements">
             <li class="element">
                 <div class="userPro">
-                    <%= image_tag(asset_path("user-add.png")) %>
-                    <%= link_to "Add_User", signup_path %>
+                    <%= image_tag(asset_path("people-roof.png")) %>
+                    <%= link_to "Home", acceuil_path %>
                 </div>
             </li>
-            <li class="element">
-                <div class="userPro">
-                    <%= image_tag(asset_path("users.png")) %>
-                    <%= link_to "Users_List", adminPage_path %>
-                </div>
-            </li>
+            <% if current_user.role == "admin" %>
+                <li class="element">
+                    <div class="userPro">
+                            <div class="userPro">
+                                <%= image_tag(asset_path("user-add.png")) %>
+                                <%= link_to "Add_User", signup_path %>
+                            </div>
+                    </div>
+                </li>
+            <% end %>
+            <% if current_user.role == "admin" %>
+                <li class="element">
+                    <div class="userPro">
+                            <div class="userPro">
+                                <%= image_tag(asset_path("users.png")) %>
+                                <%= link_to "Users_List", adminPage_path %>
+                            </div>
+                    </div>
+                </li>
+            <% end %>
             <li class="element">
                 <div class="userPro">
                     <%= image_tag(asset_path("user.png")) %>
-                    <p>Hello, Foulen</p>
+                    <%= link_to "Welcome, #{current_user.username}", logoutPage_path%>
                 </div>
             </li>
         </ul>

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get 'logout', to: "users#logoutPage", as: "logoutPage"
   # post '', to: "users#logout", as: "logout"
 
-  get 'acceuil', to: 'users#acceuil', as: 'acceuil'
+  match 'acceuil', to: 'users#acceuil', via: [:get, :post], as: "acceuil"
+  # get 'acceuil', to: 'users#acceuil', as: 'acceuil'
+  # post 'acceuil', to: "users#shodanSearch", as: 'shodan_search'
   
   get 'signup', to: 'users#signup', as: "signup"
   post 'createUser', to: 'users#createUser', as: "createUser"

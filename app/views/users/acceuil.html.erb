@@ -1,7 +1,11 @@
 <style>
-    * {
+* {
     margin: 0;
     padding: 0;
+}
+
+body {
+    background-color: #f2f2f2;
 }
 
 .globalContainer {
@@ -9,7 +13,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,6 +62,7 @@
     margin-left: 5px;
     padding: 12px;
     border-radius: 0 10px 10px 0;
+    cursor: pointer;
 }
 
 .titleInfo {
@@ -65,22 +70,167 @@
     color: white;
     margin-top: 30px;
 }
+
+.globalContentContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.contentContainer {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+}
+
+.ipInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 50px 0;
+}
+
+.otherInfoContainer {
+    width: 45%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    padding: 20px 10px;
+    border-top: 3px solid orange;
+}
+
+.ipElementsInfo {
+    display: flex;
+    flex-direction: column;
+    /* margin: 0 25px; */
+    padding: 10px 20px;
+
+}
+
+.ipElementsInfo li {
+    display: flex;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    list-style-type: none;
+}
+
+.elementName {
+    width: 50%;
+}
+
+.ipInfo {
+    width: 45%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    padding: 20px 10px;
+    border-top: 3px solid green;
+}
+
+.ipInfoTitle {
+    font-size: 1.5rem;
+    padding-left: 10px;
+}
+
+.ipElements {
+    display: flex;
+    padding: 10px 20px;
+}
+
+.portElement {
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 0 10px;
+    list-style-type: none;
+    background-color: green;
+    color: white;
+}
+
 </style>
-
+<div>
     <div class="globalContainer">
-
+        <%= render "navigation" %>
         <div class="searchContainer">
-            <div class="inputContainer">
-                <div class="inputSameWidth">
-                    <input type="text" id="search" placeholder="search an ip" class="inputSearch"/>
-                    <%= link_to(image_tag(asset_path('search-location.png'), alt: "Image Alt Text", class: "iconSearch")) %>
+            <%= form_with url: acceuil_path, local: true do |f| %>
+                <div class="inputContainer">
+                    <div class="inputSameWidth">
+                        <%# <input type="text" id="search" placeholder="search an ip" class="inputSearch"/> %>
+                        <%= f.text_field :ip, class: "inputSearch", id: "search", placeholder: "search an ip"%>
+                        <%# <%= f.submit image_tag(asset_path('search-location.png'), alt: "Image Alt Text"), class: "iconSearch" %> 
+                        <%= button_to " ", method: :get, remote: true, data: { information: "some_value" }, class: "iconSearch" do %>
+                            <%= image_tag("search-location.png", alt: "Button Text") %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="titleInfo">
+                    <p>Find What You Need: Your IP Search Starts Now!</p>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
 
-                    <%# <img src="search-location.png" class="iconSearch"/> %>
+    <div class="globalContentContainer">
+        <div class="contentContainer">
+            <div class="ipInfoContainer">
+                <div class="otherInfoContainer">
+                    <div class="otherInfo">
+                        <p class="ipInfoTitle">Global <span style="font-weight: bold">Information</span></p>
+                        <ul class="ipElementsInfo">
+                            <% if @data%>
+                                <li>
+                                    <div class="elementName">
+                                        <p>city </p>
+                                    </div>
+                                    <div class="elementName">
+                                        <p style="font-weight: bold;"><%= @data['city']%></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="elementName">
+                                        <p>region_code </p>
+                                    </div>
+                                    <div class="elementName">
+                                        <p style="font-weight: bold;"><%= @data['region_code']%></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="elementName">
+                                        <p>ip </p>
+                                    </div>
+                                    <div class="elementName">
+                                        <p style="font-weight: bold;"><%= @data['ip']%></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="elementName">
+                                        <p>isp </p>
+                                    </div>
+                                    <div class="elementName">
+                                        <p style="font-weight: bold;"><%= @data['isp']%></p>
+                                    </div>
+                                </li>
+                            <% else %>
+                                <p style="color: orange;">there is no data! (try to search on the search bar)</p>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ipInfo">
+                    <p class="ipInfoTitle">open <span style="font-weight: bold">Ports</span></p>
+                    <ul class="ipElements">
+                        <% if @data%>
+                            <% @data['ports'].each do |port| %>
+                            <li class='portElement'>
+                                <span id="ipAddress"><%= port%></span>
+                            </li>
+                            <%end%>
+                        <% else %>
+                            <p style="color: green;">there is no data! (try to search on the search bar)</p>
+                        <% end %>
+                    </ul>
                 </div>
             </div>
-            <div class="titleInfo">
-                <p>Find What You Need: Your IP Search Starts Now!</p>
-            </div>
-
         </div>
+
     </div>

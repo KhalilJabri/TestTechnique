@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     
     def loginUser
         # debugger
-        
         user = User.find_by(username: params[:user][:username])
         if user && user.authenticate(params[:user][:password])
             flash[:notice] = "Logged in successfully"
@@ -54,12 +53,30 @@ class UsersController < ApplicationController
 
     def acceuil
         if session[:user_id]
-            user = User.find_by(id: params[:xx])
-            @user1 = user
+            # user = User.find_by(id: params[:xx])
+            if params[:ip].present?
+                shodan_service = ShodanService.new("aOjRCkLJgA2CwJgG3QnS0oylO7b0MLTS")
+                @data = shodan_service.search_ip(params[:ip])
+                # render json: @data
+            else
+                @data = nil
+            end
         else
             redirect_to root_path
         end
     end
+
+    # def shodanSearch
+    #     if params[:ip].present?
+    #         # debugger
+    #         shodan_service = ShodanService.new("aOjRCkLJgA2CwJgG3QnS0oylO7b0MLTS")
+    #         @data = shodan_service.search_ip(params[:ip])
+    #         # @ports = @data["ports"] if @data
+    #         # @ports = @data["ports"] if @data
+    #         @pff ="hhhhhhh"
+    #         # render json: @ports
+    #     end
+    # end
 
     def adminPage
         if session[:user_id]

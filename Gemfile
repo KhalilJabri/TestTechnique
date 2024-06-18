@@ -29,6 +29,11 @@ gem "jbuilder"
 # Gem for inlining CSS styles into HTML emails to ensure compatibility across email clients
 gem 'premailer-rails'
 
+
+# shodanz 2.0.8
+gem 'shodanz', '~> 2.0', '>= 2.0.8'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
