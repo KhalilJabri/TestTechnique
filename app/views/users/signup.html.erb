@@ -30,7 +30,7 @@
                 <div class="formContainerSignup">
                     <%= form_with scope: :user, url: createUser_path, local: true, method: :post do |f| %>
                         <div class="formGroup">
-                            <%= f.text_field :username, class: "inputFieldSignup", placeholder: "Username" %>
+                            <%= f.text_field :username, class: "inputField", placeholder: "Username" %>
                             <%= image_tag(image_path("user.png"), class: "inputIconSignup")%>
                         </div>
 
